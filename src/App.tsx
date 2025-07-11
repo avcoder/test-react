@@ -3,6 +3,9 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
+// components
+import Button from "./components/Button.tsx";
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -18,9 +21,12 @@ function App() {
       </div>
       <h1>Hello world</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <Button
+          label="count is"
+          badge={count}
+          clickHandler={() => setCount((count) => count + 1)}
+        />
+
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
