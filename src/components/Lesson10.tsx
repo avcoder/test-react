@@ -20,7 +20,6 @@ const Lesson10 = () => {
       />
       <button
         onClick={() => {
-          console.log("input ", input);
           setPeople([...people, input]);
         }}
       >
