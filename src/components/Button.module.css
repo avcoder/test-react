@@ -1,0 +1,19 @@
+.bgBtn {
+  background-color: #3b82f6;
+}
+
+.badge {
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.bgGray {
+  background-color: gray;
+}
+
+.bgOrange {
+  background-color: orange;
+}

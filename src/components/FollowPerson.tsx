@@ -7,6 +7,7 @@ type FollowPersonProps = {
   username: string;
   avatar: string;
   isFollowing: boolean;
+  onFollowHandler: () => void;
 };
 
 const FollowPerson = ({
@@ -14,8 +15,15 @@ const FollowPerson = ({
   username,
   avatar,
   isFollowing,
+  onFollowHandler,
 }: FollowPersonProps) => {
   const label = isFollowing ? "- Following" : "+ Follow";
+
+  const handleFollow = (e) => {
+    e.preventDefault();
+    console.log("clicked follow btn");
+    onFollowHandler();
+  };
 
   return (
     <article className="dt w-100 bb b--black-05 pb2 mt2">
@@ -30,7 +38,7 @@ const FollowPerson = ({
         <h2 className="f6 fw4 mt0 mb0 black-60">@{username}</h2>
       </div>
       <div className="dtc v-mid">
-        <form className="w-100 tr">
+        <form className="w-100 tr" onSubmit={handleFollow}>
           <Button label={label} />
         </form>
       </div>

@@ -23,8 +23,9 @@ function Lesson01() {
       <div className="card">
         <Button
           label="count is"
-          badge={count}
+          badge={1}
           clickHandler={() => setCount((count) => count + 1)}
+          severity="secondary"
         />
 
         <p>

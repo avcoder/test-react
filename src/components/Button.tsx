@@ -1,19 +1,19 @@
+import styled from "./Button.module.css";
+import classnames from "classnames";
+
 function Button(props) {
+  console.log("inside styled is: ", styled); // { "bgBtn": "_btalskjfdsaf_"}
+  const classes = classnames({
+    [styled.bgGray]: props.severity === "secondary",
+    [styled.bgOrange]: props.severity === "warning",
+  });
   return (
-    <button style={{ backgroundColor: "#3b82f6" }} onClick={props.clickHandler}>
+    <button onClick={props.clickHandler} className={classes}>
       {props.label}{" "}
       {props.badge && (
-        <span
-          style={{
-            backgroundColor: "black",
-            borderRadius: "50%",
-            display: "inline-block",
-            width: "20px",
-            height: "20px",
-          }}
-        >
-          {props.badge}
-        </span>
+        <>
+          <span className={styled.badge}>{props.badge}</span>
+        </>
       )}
     </button>
   );
