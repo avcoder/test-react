@@ -4,7 +4,7 @@ import { useState } from "react";
 import FollowPerson from "./FollowPerson";
 
 const Lesson10 = () => {
-  const [people, setPeople] = useState([]);
+  const [people, setPeople] = useState<string[]>([]);
   const [input, setInput] = useState("");
 
   const onFollowHandler = () => {
@@ -35,13 +35,6 @@ const Lesson10 = () => {
             isFollowing={person.isFollowing}
             onFollowHandler={onFollowHandler}
           />
-          //   <li>
-          //     <img
-          //       style={{ height: "40px" }}
-          //       src={`https://robohash.org/{person}.png`}
-          //     />
-          //     {person}
-          //   </li>
         ))}
       </ul>
     </>
