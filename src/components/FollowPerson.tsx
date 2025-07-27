@@ -2,12 +2,14 @@
 import Button from "./Button.tsx";
 
 // types
-type FollowPersonProps = {
+import type { PersonType } from "./Lesson10.tsx";
+
+export type FollowPersonProps = {
   name: string;
   username: string;
   avatar: string;
-  isFollowing: boolean;
-  onFollowHandler: () => void;
+  isFollowing?: boolean;
+  onFollowHandler: (person: PersonType) => void;
 };
 
 const FollowPerson = ({
@@ -19,14 +21,14 @@ const FollowPerson = ({
 }: FollowPersonProps) => {
   const label = isFollowing ? "- Following" : "+ Follow";
 
-  const handleFollow = (e) => {
+  const handleFollow = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("clicked follow btn");
-    onFollowHandler();
+    onFollowHandler({ name, isFollowing: !isFollowing });
   };
 
   return (
-    <article className="dt w-100 bb b--black-05 pb2 mt2">
+    <article className="dt w-100 bb b--black-05 pa2 mt2 bg-white">
       <div className="dtc w2 w3-ns v-mid">
         <img
           src={avatar}

@@ -1,14 +1,22 @@
 import { useState } from "react";
 
 // components
-import FollowPerson from "./FollowPerson";
+import FollowPerson from "./FollowPerson.tsx";
+
+// types
+export type PersonType = {
+  name: string;
+  isFollowing?: boolean;
+};
 
 const Lesson10 = () => {
-  const [people, setPeople] = useState<string[]>([]);
+  const [people, setPeople] = useState<PersonType[]>([]);
   const [input, setInput] = useState("");
 
-  const onFollowHandler = () => {
-    console.log("in onFollowHandler");
+  const onFollowHandler = (updatedPerson: PersonType) => {
+    setPeople((prevPeople) =>
+      prevPeople.map((p) => (p.name === updatedPerson.name ? updatedPerson : p))
+    );
   };
 
   return (
@@ -20,16 +28,17 @@ const Lesson10 = () => {
       />
       <button
         onClick={() => {
-          setPeople([...people, input]);
+          setPeople([...people, { name: input }]);
+          setInput("");
         }}
       >
         Submit
       </button>
-      <ul>
+      <ul style={{ width: "400px" }}>
         {people.map((person) => (
           <FollowPerson
-            name={person}
-            username={person.substring(0, 2)}
+            name={person.name}
+            username={person.name.substring(0, 2)}
             avatar={`https://robohash.org/${person}.png`}
             isFollowing={person.isFollowing}
             onFollowHandler={onFollowHandler}
