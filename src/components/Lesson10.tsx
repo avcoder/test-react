@@ -28,7 +28,7 @@ const Lesson10 = () => {
       />
       <button
         onClick={() => {
-          setPeople([...people, { name: input }]);
+          setPeople([{ name: input }, ...people]);
           setInput("");
         }}
       >
