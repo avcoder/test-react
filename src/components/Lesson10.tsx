@@ -39,7 +39,7 @@ const Lesson10 = () => {
           <FollowPerson
             name={person.name}
             username={person.name.substring(0, 2)}
-            avatar={`https://robohash.org/${person}.png`}
+            avatar={`https://robohash.org/${person.name}.png`}
             isFollowing={person.isFollowing}
             onFollowHandler={onFollowHandler}
           />
