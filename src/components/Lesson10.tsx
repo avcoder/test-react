@@ -2,6 +2,7 @@ import { useState } from "react";
 
 // components
 import FollowPerson from "./FollowPerson.tsx";
+import Lesson01 from "./Lesson01.tsx";
 
 // types
 export type PersonType = {
@@ -14,13 +15,14 @@ const Lesson10 = () => {
   const [input, setInput] = useState("");
 
   const onFollowHandler = (updatedPerson: PersonType) => {
-    setPeople((prevPeople) =>
-      prevPeople.map((p) => (p.name === updatedPerson.name ? updatedPerson : p))
+    setPeople(
+      people.map((p) => (p.name === updatedPerson.name ? updatedPerson : p))
     );
   };
 
   return (
     <>
+      <Lesson01 />
       <input
         type="text"
         value={input}

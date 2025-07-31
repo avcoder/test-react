@@ -2,7 +2,6 @@ import styled from "./Button.module.css";
 import classnames from "classnames";
 
 function Button(props) {
-  console.log("inside styled is: ", styled); // { "bgBtn": "_btalskjfdsaf_"}
   const classes = classnames({
     [styled.bgGray]: props.severity === "secondary",
     [styled.bgOrange]: props.severity === "warning",

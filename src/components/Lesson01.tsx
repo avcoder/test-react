@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import reactLogo from "../assets/react.svg";
 import viteLogo from "/vite.svg";
-
-const temp = 0;
 
 // components
 import Button from "./Button.tsx";
 
 function Lesson01() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(() => {
+    console.log("inside useState");
+    return 0;
+  });
+
+  useEffect(() => {
+    console.log("inside useEffect");
+    document.title = `${count}`;
+  }, [count]);
+
   return (
     <>
       <div>
@@ -23,7 +30,7 @@ function Lesson01() {
       <div className="card">
         <Button
           label="count is"
-          badge={1}
+          badge={console.log("rendering JSX") || count}
           clickHandler={() => setCount((count) => count + 1)}
           severity="secondary"
         />
